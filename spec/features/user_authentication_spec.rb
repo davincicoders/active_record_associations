@@ -132,6 +132,12 @@ feature 'User Authentication' do
 
     expect(page).to have_selector("#car_#{car1.id}")
     expect(page).to have_selector("#car_#{car2.id}")
+
+    expect(page).to have_link('My Cars')
+    click_link 'My Cars'
+
+    expect(page).to_not have_selector("#car_#{car1.id}")
+
   end
 
   scenario 'show/hide My Cars link based on user being logged in' do
